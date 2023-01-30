@@ -33,10 +33,22 @@ namespace Sanke_And_Lader
                     case 1:
                         Console.WriteLine("play go ahed");
                         position = position + dice;
-                        Console.WriteLine("your position "+position);
-                        step= position; 
+                        step = position;
+                        if (step > 100)
+                        {
+                            position = position - dice;
+                            Console.WriteLine("you can not move more than 100 step dice again yor position is " + position);
+                            step = position;
+                        }
+                        else
+                        {
+                            Console.WriteLine("your position " + position);
+                            step = position;
+                        }
+                        
                         break;
                     case 2:
+                       
                         Console.WriteLine("play go back");
 
                               position = position - dice;
