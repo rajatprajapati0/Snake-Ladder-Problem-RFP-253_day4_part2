@@ -16,7 +16,25 @@ namespace Sanke_And_Lader
             Random obj=new Random();
             int dice = obj.Next(1,7);
 
-            Console.WriteLine(dice);
+            Console.WriteLine("dice no."+dice);
+
+           
+            int option=obj.Next(0,3);
+            switch(option)
+            {
+             case 0: Console.WriteLine("no play");
+                    position = position + 0;
+             break;
+             case 1: Console.WriteLine("play go ahed");
+                    position= position + dice;
+             break;
+             case 2: Console.WriteLine("play go back");
+            
+                    position = position - dice ;
+
+             break;
+            
+            }
           
 
         }
