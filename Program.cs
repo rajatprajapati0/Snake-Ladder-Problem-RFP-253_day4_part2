@@ -14,27 +14,49 @@ namespace Sanke_And_Lader
             int position = 0;
             int step = 0;
             Random obj=new Random();
-            int dice = obj.Next(1,7);
+        
 
-            Console.WriteLine("dice no."+dice);
+           while (step < 100)
+           {
+                   int dice = obj.Next(1, 7);
+                   Console.WriteLine("you got on dice " + dice);
+                   int option = obj.Next(0, 3);
 
-           
-            int option=obj.Next(0,3);
-            switch(option)
-            {
-             case 0: Console.WriteLine("no play");
-                    position = position + 0;
-             break;
-             case 1: Console.WriteLine("play go ahed");
-                    position= position + dice;
-             break;
-             case 2: Console.WriteLine("play go back");
-            
-                    position = position - dice ;
+             switch (option)
+             {
+                    case 0:
+                        Console.WriteLine("no play");
+                        position = position + 0;
+                        Console.WriteLine("your position " + position);
+                        step = position;
+                        break;
+                    case 1:
+                        Console.WriteLine("play go ahed");
+                        position = position + dice;
+                        Console.WriteLine("your position "+position);
+                        step= position; 
+                        break;
+                    case 2:
+                        Console.WriteLine("play go back");
 
-             break;
-            
-            }
+                              position = position - dice;
+
+                        step = position;
+                        if (step<0) 
+                        {
+                            position = 0;
+                            step = position;
+                        }
+                        else
+                        {
+                            Console.WriteLine("your position " + position);
+                            step = position;
+                        }
+                        break;
+
+                
+             }
+           }
           
 
         }
